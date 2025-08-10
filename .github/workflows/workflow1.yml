@@ -1,0 +1,9 @@
+name: Echo every 5 minutes
+on: 
+    workflow_dispatch
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: logs some values
+              run: echo hi
