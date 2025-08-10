@@ -1,6 +1,10 @@
 name: Echo every 5 minutes
 on: 
     workflow_dispatch
+
+permissions: 
+    actions: write
+    issues: write
 jobs:
     test:
         runs-on: ubuntu-latest
