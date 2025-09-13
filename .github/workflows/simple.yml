@@ -8,5 +8,9 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
-            - name: list all the files and folders
-              run: ls -la
+            - name: run some command
+              run: |
+                ls -la
+                echo "Hello, World!"
+                pwd
+                
