@@ -1,0 +1,13 @@
+name: A simple demo
+on:
+    workflow_dispatch:
+
+jobs:
+    demo:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [14, 16, 18]
+        steps:
+            - name: Print a message
+              run: echo ${{matrix.node-version}}
