@@ -3,12 +3,18 @@ on:
     workflow_dispatch:
 
 jobs:
-    demo:
+    job1:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
-            - name: run some command
-              run: |
-                chmod +x fun.sh
-                ./fun.sh
+            - name: write some content to a flile
+              run: echo "hello world" > myfile.txt
+            - name: sleep for 30 seconds
+              run: sleep 10
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+            - name: sleep 20
+              run: sleep 20
+            - name: test presence of file
+              run: grep -i "hello" myfile.txt
