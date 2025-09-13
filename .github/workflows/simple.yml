@@ -9,8 +9,4 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v3
             - name: run some command
-              run: |
-                ls -la
-                echo "Hello, World!"
-                pwd
-                
+              run: ./fun.sh
