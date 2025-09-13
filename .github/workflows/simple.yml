@@ -6,23 +6,11 @@ jobs:
     job1:
         runs-on: ubuntu-latest
         steps:
-            - name: write some content to a flile
-              run: echo "hello world" > myfile.txt
-            - name: sleep for 10 seconds
-              run: sleep 10
-            - name: upload artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: myfile
-                  path: myfile.txt
-
-    job2:
-        runs-on: ubuntu-latest
-        needs: job1
-        steps:
-            - name: download artifact
-              uses: actions/download-artifact@v5
-              with:
-                  name: myfile
-            - name: test presence of file
-              run: grep -i "hello" myfile.txt
+            - name: access secrets and variables via passing them in env
+              env:
+                MY_SECRET: ${{ secrets.DOCKER_PASSWORD }}
+                MY_VAR: ${{ vars.NAME }}
+              run: |
+                echo "The secret is $MY_SECRET"
+                echo "The var is ${{env.MY_VAR}}"
+            
