@@ -9,4 +9,6 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v3
             - name: run some command
-              run: ./fun.sh
+              run: |
+                chmod +x fun.sh
+                ./fun.sh
