@@ -5,9 +5,8 @@ on:
 jobs:
     demo:
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [14, 16, 18]
         steps:
-            - name: Print a message
-              run: echo ${{matrix.node-version}}
+            - name: Checkout repository
+              uses: actions/checkout@v3
+            - name: list all the files and folders
+              run: ls -la
